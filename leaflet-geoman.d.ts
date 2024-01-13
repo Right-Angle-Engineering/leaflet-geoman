@@ -530,6 +530,13 @@ declare module 'leaflet' {
     function setOptIn(optIn: boolean): void;
 
     /**
+     * Provide a custom Toolbar class for geoman to use, instead of the built-in one.
+     *
+     * @param toolbar - your custom Toolbar class.
+     */
+    function setCustomToolbarClass(toolbar: PMMapToolbar): void;
+
+    /**
      * Enable leaflet-geoman on an ignored layer.
      *
      * @param layer - re-reads layer.options.pmIgnore to initialize leaflet-geoman.
