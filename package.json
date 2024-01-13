@@ -16,7 +16,8 @@
     "ui-leaflet-draw"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "dist/leaflet-geoman.min.js",
   "types": "dist/leaflet-geoman.d.ts",

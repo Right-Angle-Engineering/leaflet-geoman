@@ -58,6 +58,9 @@ L.PM = L.PM || {
   setOptIn(value) {
     this.optIn = !!value;
   },
+  setCustomToolbarClass(toolbar) {
+    this.Toolbar = toolbar;
+  },
   addInitHooks() {
     function initMap() {
       this.pm = undefined;
