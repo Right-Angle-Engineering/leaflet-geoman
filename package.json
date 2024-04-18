@@ -51,16 +51,16 @@
     "leaflet": "^1.2.0"
   },
   "scripts": {
-    "start": "pnpm run dev",
+    "start": "npm run dev",
     "dev": "cross-env DEV=true ts-node bundle.mjs",
     "build": "ts-node bundle.mjs",
     "test": "cypress run",
     "cypress": "cypress open",
-    "prepare": "pnpm run build && husky",
+    "prepare": "npm run build && husky",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "eslint": "eslint \"{src,cypress,demo}/**/*.js\" --fix ",
     "prettier": "prettier --write \"{src,cypress,demo}/**/*.{js,css}\" --log-level=warn",
-    "lint": "pnpm run eslint && pnpm run prettier"
+    "lint": "npm run eslint && npm run prettier"
   },
   "repository": {
     "type": "git",
@@ -85,6 +85,5 @@
   "lint-staged": {
     "*.js": "eslint \"{src,cypress,demo}/**/*.js\" --fix",
     "*.{js,css,md}": "prettier --write \"{src,cypress,demo}/**/*.{js,css}\""
-  },
-  "packageManager": "pnpm@9.0.3+sha1.ff3ad37177cbd0843e533aab13d5e40a05803b47"
+  }
 }
