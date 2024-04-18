@@ -218,6 +218,11 @@ describe('Testing the Toolbar', () => {
         expect(testresult).to.equal('clickButton clicked');
         cy.get(container).should('not.have.class', 'active');
       });
+      expect(map.pm.Toolbar.getButton('clickButton')).to.not.equal(undefined);
+      expect(map.pm.Toolbar.controlExists('clickButton')).to.equal(true);
+      expect(
+        'clickButton' in map.pm.Toolbar.getButtonsInBlock('custom')
+      ).to.equal(true);
     });
   });
 
@@ -499,5 +504,25 @@ describe('Testing the Toolbar', () => {
       .then(() => {
         expect(eventFired).to.equal('drawPolygon');
       });
+  });
+
+  it("After disabling & enabling of a button, while a mode is active, don't call disable on the draw layer", (done) => {
+    let eventFired = '';
+
+    cy.toolbarButton('edit').click();
+
+    cy.window().then(({ map }) => {
+      map.on('pm:drawend', ({ shape }) => {
+        eventFired = shape;
+      });
+      map.pm.Toolbar.setButtonDisabled('drawText', true);
+      map.pm.Toolbar.setButtonDisabled('drawText', false);
+    });
+    cy.toolbarButton('text').click();
+
+    cy.window().then(() => {
+      expect(eventFired).to.equal('');
+      done();
+    });
   });
 });
