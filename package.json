@@ -85,5 +85,6 @@
   "lint-staged": {
     "*.js": "eslint \"{src,cypress,demo}/**/*.js\" --fix",
     "*.{js,css,md}": "prettier --write \"{src,cypress,demo}/**/*.{js,css}\""
-  }
+  },
+  "packageManager": "pnpm@9.0.3+sha1.ff3ad37177cbd0843e533aab13d5e40a05803b47"
 }
